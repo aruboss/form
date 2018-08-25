@@ -5,7 +5,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      username: ''
+      txtName : '',
+      txtPassword : ''
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -14,12 +15,12 @@ class App extends Component {
   //khi bat su kien cua 1 input hoac button -> ham dau vao luon co bien event
   onHandleChange(event){
     this.setState({
-      username : event.target.value
+      [event.target.name] : event.target.value
     })
   }
   onHandleSubmit(event){
     event.preventDefault();//chặn default submit
-    alert(this.state.username)
+    console.log(this.state)
   }
 
   render() {
@@ -39,6 +40,15 @@ class App extends Component {
                         type="text" 
                         className="form-control" 
                         name = "txtName"
+                        onChange = {this.onHandleChange}
+                    />
+                  </div>    
+                  <div className="form-group">  
+                    <label>Password: </label> 
+                    <input 
+                        type="password" 
+                        className="form-control" 
+                        name = "txtPassword"
                         onChange = {this.onHandleChange}
                     />
                   </div>
