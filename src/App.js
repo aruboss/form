@@ -9,7 +9,8 @@ class App extends Component {
       txtPassword : '',
       txtDesc: '',
       sltGender: 0,
-      rdLang: 'vi'
+      rdLang: 'vi',
+      chkbStatus: false
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -18,7 +19,7 @@ class App extends Component {
   //khi bat su kien cua 1 input hoac button -> ham dau vao luon co bien event
   onHandleChange(event){
     this.setState({
-      [event.target.name] : event.target.value
+      [event.target.name] : (event.target.type==='checkbox'?event.target.checked:event.target.value)
     })
   }
   onHandleSubmit(event){
@@ -99,6 +100,18 @@ class App extends Component {
                         checked={this.state.rdLang==='en'}
                       />
                       Tiếng Anh
+                    </label>
+                  </div>
+                  <div className="checkbox">
+                    <label>
+                      <input 
+                        type="checkbox" 
+                        name="chkbStatus"
+                        value={true}
+                        onChange={this.onHandleChange}
+                        checked={this.state.chkbStatus===true}
+                      />
+                      Trạng thái
                     </label>
                   </div>
                   <button type="submit" className="btn btn-primary">Lưu lại</button>&nbsp;
