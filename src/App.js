@@ -7,7 +7,8 @@ class App extends Component {
     this.state = {
       txtName : '',
       txtPassword : '',
-      txtDesc: ''
+      txtDesc: '',
+      sltGender: 0
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -41,6 +42,7 @@ class App extends Component {
                         type="text" 
                         className="form-control" 
                         name = "txtName"
+                        value={this.state.txtName}
                         onChange = {this.onHandleChange}
                     />
                   </div>    
@@ -50,6 +52,7 @@ class App extends Component {
                         type="password" 
                         className="form-control" 
                         name = "txtPassword"
+                        value={this.state.txtPassword}
                         onChange = {this.onHandleChange}
                     />
                   </div>
@@ -59,9 +62,20 @@ class App extends Component {
                         className="form-control" 
                         rows="3"
                         name = "txtDesc"
+                        value={this.state.txtDesc}
                         onChange = {this.onHandleChange}
                         ></textarea>
                   </div>
+                  <label>Giới tính: </label>
+                  <select 
+                        className="form-control" 
+                        name="sltGender"
+                        value={this.state.sltGender}
+                        onChange={this.onHandleChange}
+                    ><option value={0}>Nữ</option>
+                    <option value={1}>Nam</option>
+                  </select>
+                  <br/>
                   <button type="submit" className="btn btn-primary">Lưu lại</button>&nbsp;
                   <button type="reset" className="btn btn-default">Xóa</button>
                 </form>
