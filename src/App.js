@@ -8,7 +8,8 @@ class App extends Component {
       txtName : '',
       txtPassword : '',
       txtDesc: '',
-      sltGender: 0
+      sltGender: 0,
+      rdLang: 'vi'
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
@@ -76,6 +77,30 @@ class App extends Component {
                     <option value={1}>Nam</option>
                   </select>
                   <br/>
+
+                  <label>Ngôn ngữ: </label>
+                  <div className="radio">
+                    <label>
+                        <input 
+                        type="radio" 
+                        name="rdLang" 
+                        value="vi" 
+                        onChange={this.onHandleChange}
+                        checked={this.state.rdLang==='vi'}
+                      />
+                      Tiếng Việt
+                    </label>&nbsp;
+                    <label>
+                      <input 
+                        type="radio" 
+                        name="rdLang" 
+                        value="en" 
+                        onChange={this.onHandleChange}
+                        checked={this.state.rdLang==='en'}
+                      />
+                      Tiếng Anh
+                    </label>
+                  </div>
                   <button type="submit" className="btn btn-primary">Lưu lại</button>&nbsp;
                   <button type="reset" className="btn btn-default">Xóa</button>
                 </form>
